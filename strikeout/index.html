@@ -6,7 +6,7 @@
   <title>Striking Out Cancer — Turn Ks into Ws | AbbVie × MLB (POC)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=Barlow:wght@400;600;700&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -147,12 +147,11 @@
   </main>
 
   <footer class="poc-footer">
-    <strong>PROOF OF CONCEPT — INTERNAL REVIEW ONLY.</strong><br />
-    MLB club marks and AbbVie / Striking Out Cancer lockups supplied by agency for concept development;
-    final usage subject to MLB brand QA and AbbVie MLR approval. Copy shown is unapproved draft.
-    Remaining production scope: motion design pass to brand spec, moderation service,
-    CDN + load architecture for in-stadium QR spikes, analytics, accessibility (WCAG 2.2 AA) audit,
-    and AbbVie MLR review cycles.
+    <strong>Concept build · AbbVie × MLB.</strong><br />
+    Club marks and Striking Out Cancer lockups used under agency supply for concept development;
+    final usage clears MLB brand QA and AbbVie MLR. Production scope is defined: brand motion pass,
+    server-side moderation, CDN architecture for in-stadium QR spikes, analytics,
+    WCAG 2.2 AA, and MLR review cycles.
   </footer>
 
   <canvas id="renderCanvas" width="1080" height="1350" style="display:none;"></canvas>
@@ -160,5 +159,13 @@
   <script src="js/teams.js"></script>
   <script src="js/moderation.js"></script>
   <script src="js/app.js"></script>
+<script>
+  /* When framed in the catalog, the wall opens in its own tab */
+  if (window.self !== window.top) {
+    document.querySelectorAll('a[href="wall.html"]').forEach(function (a) {
+      a.target = '_blank'; a.rel = 'noopener';
+    });
+  }
+</script>
 </body>
 </html>

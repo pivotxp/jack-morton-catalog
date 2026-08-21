@@ -14,7 +14,7 @@ var Moderation = (function () {
   /* Unambiguous terms — flagged anywhere in the string */
   var BLOCK_SUBSTRING = [
     'fuck', 'shit', 'cunt', 'bitch', 'asshole', 'arsehole', 'bastard',
-    'dickhead', 'cock', 'pussy', 'wanker', 'twat', 'prick', 'bollock',
+    'dickhead', 'pussy', 'wanker', 'twat', 'prick', 'bollock',
     'douche', 'faggot', 'nigger', 'nigga', 'spic', 'kike', 'chink',
     'gook', 'wetback', 'beaner', 'retard', 'rapist', 'nazi', 'hitler',
     'whore', 'slut', 'jizz', 'penis', 'vagina', 'boner', 'dildo',
@@ -26,9 +26,15 @@ var Moderation = (function () {
      (so "Cassie", "Dickinson", "Cummings" pass) */
   var BLOCK_WORD = [
     'ass', 'arse', 'anal', 'anus', 'homo', 'coon', 'paki', 'tard',
-    'fag', 'dick', 'cum', 'sex', 'rape', 'tits', 'ho', 'hoe',
+    'fag', 'dick', 'cock', 'cum', 'sex', 'rape', 'tits', 'hoe',
     'damn', 'piss', 'crap', 'perv', 'meth', 'heroin', 'cocaine',
-    'kill', 'die', 'dead', 'hate',
+    'kill', 'hate',
+  ];
+
+  /* Real surnames that collide with blocklist fragments — always allowed */
+  var ALLOW_WORD = [
+    'hancock', 'alcock', 'cockburn', 'hitchcock', 'ho', 'cocke',
+    'woodcock', 'babcock', 'glasscock', 'dickson', 'dickinson',
   ];
 
   var LEET = { '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's', '7': 't', '8': 'b', '@': 'a', '$': 's', '!': 'i', '+': 't' };
@@ -50,7 +56,12 @@ var Moderation = (function () {
   function isClean(name) {
     if (!name) return true;
 
-    var forms = [normalize(name)];
+    /* strip allowlisted surnames out before any matching */
+    var scrubbed = String(name).toLowerCase().split(/[^a-zA-Z]+/).filter(function (w) {
+      return ALLOW_WORD.indexOf(w) === -1;
+    }).join(' ');
+
+    var forms = [normalize(scrubbed)];
     forms.push(collapse(forms[0]));
 
     for (var f = 0; f < forms.length; f++) {
@@ -60,7 +71,7 @@ var Moderation = (function () {
     }
 
     /* whole-word pass on the original tokenization (leet-mapped) */
-    var words = deLeet(String(name).toLowerCase()).split(/[^a-z]+/);
+    var words = deLeet(scrubbed).split(/[^a-z]+/);
     for (var w = 0; w < words.length; w++) {
       if (!words[w]) continue;
       if (BLOCK_WORD.indexOf(words[w]) !== -1) return false;

@@ -7,11 +7,11 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
 <style>
 :root{
   --bg:#0A0F0D; --surface:#111814; --raise:#17201B; --line:rgba(151,199,178,.14);
-  --ink:#F1F6F3; --muted:#96A8A0; --dim:#5F7169;
+  --ink:#F1F6F3; --muted:#96A8A0; --dim:#7C8F86;
   --mint:#3EE29B; --mint-deep:#1FA06C; --mint-ink:#062A1B;
   --disp:"Archivo",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
@@ -172,7 +172,8 @@ const C2=[
 
 const T="assets/polaris/tiles/",V="assets/polaris/video/";
 function tile(img,vid,label,excerpt){
-  const f=document.createElement('figure');f.className='k-tile';
+  const f=document.createElement('figure');f.className='k-tile';f.setAttribute('role','button');f.setAttribute('tabindex','0');f.setAttribute('aria-label',label);
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPlayer(vid,label,excerpt)}});
   f.innerHTML=`<img class="ph" src="${T}${img}.png" alt="${label}" loading="lazy" draggable="false">`;
   f.addEventListener('click',()=>{if(!dragMoved)openPlayer(vid,label,excerpt)});
   return f;
@@ -199,7 +200,7 @@ document.querySelectorAll('.k-strip').forEach(strip=>{
 const player=document.getElementById('player'),pv=document.getElementById('pvideo'),pnote=document.getElementById('pnote');
 function openPlayer(vid,label,excerpt){
   pv.src=`${V}${vid}.mp4`;pnote.textContent=excerpt?'Excerpt — trimmed for web demo':'';
-  player.classList.add('open');pv.currentTime=0;pv.play().catch(()=>{});
+  player.classList.add('open');pv.play().catch(()=>{});
 }
 function closePlayer(){player.classList.remove('open');pv.pause();pv.removeAttribute('src');pv.load()}
 btnBack.addEventListener('click',closePlayer);
@@ -216,6 +217,14 @@ function armIdle(){clearTimeout(idleT);idleT=setTimeout(()=>{
 function wake(){if(attract.classList.contains('open')){attract.classList.remove('open');av.pause()}armIdle()}
 ['pointerdown','pointermove','touchstart','keydown'].forEach(ev=>document.getElementById('kiosk').addEventListener(ev,wake,{passive:true}));
 armIdle();
+
+/* parent catalog pauses us when scrolled off-screen */
+let parked=false;
+addEventListener('message',e=>{
+  if(!e.data||!e.data.cmd)return;
+  if(e.data.cmd==='pause'){parked=true;clearTimeout(idleT);pv.pause();av.pause();}
+  if(e.data.cmd==='resume'&&parked){parked=false;if(attract.classList.contains('open'))av.play().catch(()=>{});armIdle();}
+});
 </script>
 </body>
 </html>

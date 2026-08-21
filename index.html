@@ -6,14 +6,20 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Pivot × Jack Morton — The Experience Catalog</title>
 <meta name="description" content="PivotXP experiential product catalog, prepared for Jack Morton.">
+<meta property="og:title" content="Pivot × Jack Morton — The Experience Catalog">
+<meta property="og:description" content="Capture systems, gamification, AI enhancements, and physical takeaways — with three live demos you can drive in the browser.">
+<meta property="og:image" content="https://pivotxp.github.io/jack-morton-catalog/assets/img/og-cover.jpg">
+<meta property="og:url" content="https://pivotxp.github.io/jack-morton-catalog/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%233EE29B' stroke-width='10'/%3E%3C/svg%3E">
 <style>
 :root{
   --bg:#0A0F0D; --surface:#111814; --raise:#17201B; --line:rgba(151,199,178,.14);
-  --ink:#F1F6F3; --muted:#96A8A0; --dim:#5F7169;
+  --ink:#F1F6F3; --muted:#96A8A0; --dim:#7C8F86;
   --mint:#3EE29B; --mint-deep:#1FA06C; --mint-ink:#062A1B;
   --disp:"Archivo",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
@@ -39,7 +45,13 @@ h1,h2,h3{font-family:var(--disp);text-wrap:balance}
 .nav-links a:hover{color:var(--ink)}
 .btn-kit{background:var(--mint);color:var(--mint-ink)!important;padding:.55rem 1rem;border-radius:3px;font-weight:500}
 .btn-kit:hover{background:#5BEFAF;color:var(--mint-ink)!important}
-@media(max-width:900px){.nav-links a:not(.btn-kit){display:none}}
+@media(max-width:900px){
+  .nav{flex-wrap:wrap;row-gap:.4rem;padding-bottom:.6rem}
+  .nav-links{order:3;width:100%;margin-left:0;overflow-x:auto;scrollbar-width:none;gap:1.1rem;padding-bottom:.2rem}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap}
+  .btn-kit{order:2;margin-left:auto}
+}
 
 /* ---------- cover ---------- */
 .cover{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,10vh,8rem) clamp(1.2rem,6vw,5rem) 4rem;position:relative;overflow:hidden;background:
@@ -54,6 +66,9 @@ h1,h2,h3{font-family:var(--disp);text-wrap:balance}
 .cover .prep b{color:var(--ink);font-weight:500}
 .cover .prep::before{content:"";width:2.6rem;height:1px;background:var(--mint)}
 .cover p.lede{margin-top:1.4rem;max-width:46ch;color:var(--muted);font-size:1.06rem}
+.cover .demo-cue{margin-top:1.6rem}
+.cover .demo-cue a{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(62,226,155,.4);border-radius:99px;padding:.55rem 1.1rem;transition:background .2s,border-color .2s}
+.cover .demo-cue a:hover{background:rgba(62,226,155,.12);border-color:var(--mint)}
 .cover .scroll-cue{position:absolute;bottom:2rem;left:clamp(1.2rem,6vw,5rem);font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);animation:cue 2.6s ease-in-out infinite}
 @keyframes cue{50%{transform:translateY(6px);opacity:.5}}
 @media(prefers-reduced-motion:reduce){.cover .scroll-cue{animation:none}.reveal{transition:none!important}}
@@ -107,13 +122,6 @@ section{padding:clamp(4rem,9vw,7.5rem) clamp(1.2rem,6vw,5rem)}
 .card .kicker{display:block;margin-bottom:.5rem}
 .card a.case{display:inline-block;margin-top:.7rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
 .card a.case::after{content:" ↗"}
-
-/* placeholder art for media pending upload */
-.ph{width:100%;height:100%;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.3rem;padding:1.2rem;background:
-  radial-gradient(400px 200px at 80% 10%,rgba(62,226,155,.16),transparent 60%),
-  repeating-linear-gradient(135deg,transparent 0 14px,rgba(151,199,178,.05) 14px 15px),var(--raise)}
-.ph b{font-family:var(--disp);font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:1.6rem;color:rgba(241,246,243,.25);letter-spacing:.02em}
-.ph span{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 
 /* ---------- platform ---------- */
 .plat{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
@@ -225,15 +233,16 @@ footer .fine a{color:var(--muted)}
 <body>
 
 <nav class="nav" id="nav" aria-label="Catalog sections">
-  <img src="assets/img/pivot-logo.png" alt="PivotXP">
+  <img src="assets/img/pivot-logo.png" alt="PivotXP" width="2101" height="607">
   <div class="nav-links">
     <a href="#booths">Booths</a>
     <a href="#enhancements">Enhancements</a>
     <a href="#takeaways">Takeaways</a>
     <a href="#gamification">Gamification</a>
-    <a href="#proof">Demo</a>
     <a href="#platform">Platform</a>
-    <a class="btn-kit" href="https://drive.google.com/drive/folders/12oyMfS5YtjwqjWB_iHk6fWnoakLCNZFn" target="_blank" rel="noopener">Asset Kit</a>
+    <a href="#installs">Field</a>
+    <a href="#proof">Demo</a>
+    <a class="btn-kit" href="kit.html">Asset Kit</a>
   </div>
 </nav>
 
@@ -242,6 +251,7 @@ footer .fine a{color:var(--muted)}
   <h1>The<br>Experience<br><em>Catalog</em></h1>
   <p class="prep">Prepared for <b>&nbsp;Jack Morton</b>&nbsp;· August 2026</p>
   <p class="lede">Capture systems, gamification, AI enhancements, and physical takeaways — every unit in this catalog is built, wrapped, and supported by Pivot for activations that cannot fail.</p>
+  <p class="demo-cue"><a href="#proof">See the live demos →</a></p>
   <span class="scroll-cue">Scroll ↓</span>
 </header>
 
@@ -255,60 +265,60 @@ footer .fine a{color:var(--muted)}
 
   <!-- Selfie Station -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-lite.png" alt="Selfie Station kiosk with halo ring light, shown in a GM custom wrap" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-lite.png" alt="Selfie Station kiosk with halo ring light, shown in a GM custom wrap" loading="lazy" width="487" height="1000"></div>
     <div class="info">
       <span class="kicker">PB·01</span>
       <h3>Selfie Station</h3>
       <p class="desc">The ring-light icon, rebuilt as brandable real estate. A freestanding kiosk with a halo light and a full-wrap column that disappears into any footprint — and keeps a line moving all day.</p>
-      <div class="specs"><span>Stills · GIF · Boomerang · Video</span><span>Instant SMS / Email / QR</span><span>Full custom wrap</span><span>2 ft footprint</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>Stills · GIF · Boomerang · Video</span><span>Instant SMS / Email / QR</span><span>Full custom wrap</span><span>2 ft footprint</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
       <p class="seen">In the field&nbsp;· <b>GMC Basecamp (ski) · GM Rewards · Downy Unstopables</b></p>
       <div class="media">
         <figure class="vwrap"><video preload="none" poster="assets/poster/selfie-demo.jpg" src="assets/video/selfie-demo.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>On-screen experience</figcaption></figure>
         <figure class="vwrap"><video preload="none" poster="assets/poster/selfie-unstopables.jpg" src="assets/video/selfie-unstopables.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Downy Unstopables</figcaption></figure>
-        <figure><img src="assets/img/selfie-event-1.jpg" alt="Group of skiers on an ice couch at GMC Basecamp with branded photo overlay" loading="lazy"><figcaption>GMC Basecamp</figcaption></figure>
-        <figure><img src="assets/img/selfie-event-2.jpg" alt="Selfie Station activation on site" loading="lazy"><figcaption>On site</figcaption></figure>
-        <figure><img src="assets/img/selfie-event-3.jpg" alt="GM Rewards Woodward Dream Cruise photo output with blue Greetings from Woodward Ave frame" loading="lazy"><figcaption>GM Rewards · Woodward Dream Cruise</figcaption></figure>
+        <figure><img src="assets/img/selfie-event-1.jpg" alt="Group of skiers on an ice couch at GMC Basecamp with branded photo overlay" loading="lazy" width="1400" height="1400"><figcaption>GMC Basecamp</figcaption></figure>
+        <figure><img src="assets/img/selfie-event-2.jpg" alt="Selfie Station activation on site" loading="lazy" width="1400" height="1400"><figcaption>On site</figcaption></figure>
+        <figure><img src="assets/img/selfie-event-3.jpg" alt="GM Rewards Woodward Dream Cruise photo output with blue Greetings from Woodward Ave frame" loading="lazy" width="1400" height="941"><figcaption>GM Rewards · Woodward Dream Cruise</figcaption></figure>
       </div>
     </div>
   </article>
 
   <!-- PRO -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-pro.png" alt="PRO booth, front and back, with adjustable tilting head unit" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-pro.png" alt="PRO booth, front and back, with adjustable tilting head unit" loading="lazy" width="793" height="1000"></div>
     <div class="info">
       <span class="kicker">PB·02</span>
       <h3>PRO</h3>
       <p class="desc">Our workhorse capture system with a fully adjustable head that tilts to meet any set design — step-and-repeat, vignette, or vehicle. DSLR-grade glass on the front.</p>
-      <div class="specs"><span>DSLR-grade capture</span><span>Adjustable head</span><span>Stills · GIF · Boomerang · Video</span><span>Physical takeaways</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>DSLR-grade capture</span><span>Adjustable head</span><span>Stills · GIF · Boomerang · Video</span><span>Physical takeaways</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
       <p class="seen">In the field&nbsp;· <b>Chevrolet at CMA Fest · GM</b></p>
       <div class="media">
         <figure class="vwrap"><video preload="none" poster="assets/poster/pro-demo-1.jpg" src="assets/video/pro-demo-1.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Capture flow</figcaption></figure>
         <figure class="vwrap"><video preload="none" poster="assets/poster/pro-demo-2.jpg" src="assets/video/pro-demo-2.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Guest experience</figcaption></figure>
-        <figure><img src="assets/img/pro-output.jpg" alt="Branded Chevrolet CMA Fest photo output of a guest with guitar in front of a gold record" loading="lazy"><figcaption>Branded output · CMA Fest</figcaption></figure>
+        <figure><img src="assets/img/pro-output.jpg" alt="Branded Chevrolet CMA Fest photo output of a guest with guitar in front of a gold record" loading="lazy" width="1400" height="933"><figcaption>Branded output · CMA Fest</figcaption></figure>
       </div>
     </div>
   </article>
 
   <!-- Elevated Kiosk -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-kiosk.png" alt="Elevated Kiosk with LED edge lighting, large touch screen, and integrated printer" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-kiosk.png" alt="Elevated Kiosk with LED edge lighting, large touch screen, and integrated printer" loading="lazy" width="750" height="1000"></div>
     <div class="info">
       <span class="kicker">PB·03</span>
       <h3>Elevated Kiosk</h3>
       <p class="desc">The statement piece. A full-body kiosk with programmable LED edge lighting, a large portrait touch display, and DSLR-grade capture — with optional on-board printing, guests can walk away with a physical takeaway in seconds.</p>
-      <div class="specs"><span>DSLR-grade capture</span><span>Stills · GIF · Boomerang · Video</span><span>Optional printing</span><span>Physical takeaways</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>DSLR-grade capture</span><span>Stills · GIF · Boomerang · Video</span><span>Optional printing</span><span>Physical takeaways</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
       <p class="seen">In the field&nbsp;· <b>GM — “Driving Innovation Forward”</b></p>
     </div>
   </article>
 
   <!-- Robot -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-robot.png" alt="Robotic camera arm mounted on a rail atop a branded base cabinet" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-robot.png" alt="Robotic camera arm mounted on a rail atop a branded base cabinet" loading="lazy" width="1000" height="667"></div>
     <div class="info">
       <span class="kicker">PB·04</span>
       <h3>Robot</h3>
       <p class="desc">A programmable robot arm that turns capture into a show. Repeatable cinematic moves — whip pans, glam passes, overhead sweeps — that no handheld operator can match, with a crowd gathered around every take.</p>
-      <div class="specs"><span>Programmable moves</span><span>Cinematic slow-mo</span><span>Rail-mounted arm</span><span>Crowd magnet</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>Programmable moves</span><span>Cinematic slow-mo</span><span>Rail-mounted arm</span><span>Crowd magnet</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
       <p class="seen">In the field&nbsp;· <b>Chevrolet — CMA Awards · USAA × NFL Salute to Service · Marvel × American Family Insurance</b></p>
       <div class="media">
         <figure class="vwrap"><video preload="none" poster="assets/poster/robot-cma.jpg" src="assets/video/robot-cma.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Chevrolet · CMA Awards</figcaption></figure>
@@ -319,12 +329,12 @@ footer .fine a{color:var(--muted)}
 
   <!-- 360 -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-360.png" alt="360 camera platform with rotating boom arm, shown in GM wrap" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-360.png" alt="360 camera platform with rotating boom arm, shown in GM wrap" loading="lazy" width="1000" height="839"></div>
     <div class="info">
       <span class="kicker">PB·05</span>
       <h3>360 Camera</h3>
       <p class="desc">The spin that never stops earning shares. Guests step on the platform, the arm orbits, and a slow-motion 360 video with branded overlays hits their phone before they walk away. Mount it on truss for cinematic vehicle capture, or floor-mount it when space is tight.</p>
-      <div class="specs"><span>Slow-mo orbit video</span><span>Truss or floor mount</span><span>Branded overlays</span><span>Instant delivery</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>Slow-mo orbit video</span><span>Truss or floor mount</span><span>Branded overlays</span><span>Instant delivery</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
       <p class="seen">In the field&nbsp;· <b>CMA Fest · Chevrolet</b></p>
       <div class="media">
         <figure class="vwrap"><video preload="none" poster="assets/poster/360-overhead.jpg" src="assets/video/360-overhead.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Overhead 360 · Chevrolet</figcaption></figure>
@@ -334,12 +344,13 @@ footer .fine a{color:var(--muted)}
 
   <!-- Array -->
   <article class="product reveal">
-    <div class="stage"><img src="assets/img/render-array.png" alt="Array multi-camera gantry with seven camera lenses across the top beam" loading="lazy"></div>
+    <div class="stage"><img src="assets/img/render-array.png" alt="Array multi-camera gantry with seven camera lenses across the top beam" loading="lazy" width="803" height="1000"></div>
     <div class="info">
       <span class="kicker">PB·06</span>
       <h3>Array</h3>
       <p class="desc">Bullet-time, from a 7- or 14-camera gantry. Every lens fires in sync to freeze the moment, then sweep around it — the Matrix effect, sized for a booth footprint and branded end to end.</p>
-      <div class="specs"><span>7 or 14 cameras, synced</span><span>Freeze + sweep effect</span><span>Walk-through gantry</span><span>Full custom wrap</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="specs"><span>7 or 14 cameras, synced</span><span>Freeze + sweep effect</span><span>Walk-through gantry</span><span>Full custom wrap</span><span>AI background removal</span><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
+      <p class="seen">In the field&nbsp;· <b>Argylle premiere · Universal Studios</b></p>
       <div class="media">
         <figure class="vwrap"><video preload="none" poster="assets/poster/array-demo.jpg?v=2" src="assets/video/array-demo.mp4?v=2" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><figcaption>Argylle premiere · bullet-time</figcaption></figure>
       </div>
@@ -356,11 +367,11 @@ footer .fine a{color:var(--muted)}
   </div>
   <div class="cards reveal">
     <div class="card">
-      <div class="art"><img src="assets/img/enhance-throwing.jpg" alt="AI image regeneration example" loading="lazy"></div>
+      <div class="art"><img src="assets/img/enhance-throwing.jpg" alt="AI image regeneration example" loading="lazy" width="1400" height="1400"></div>
       <div class="txt"><span class="kicker">ENH·01</span><h4>AI Image Regeneration</h4><p>A guest’s photo becomes the input to a full prompt — they’re regenerated inside a brand-built scene, like this gridiron hero moment.</p></div>
     </div>
     <div class="card">
-      <div class="art"><img src="assets/img/enhance-western-glam.png" alt="Western Glam themed AI regeneration of a guest in a pink hat" loading="lazy"></div>
+      <div class="art"><img src="assets/img/enhance-western-glam.jpg" alt="Western Glam themed AI regeneration of a guest in a pink hat" loading="lazy" width="666" height="1000"></div>
       <div class="txt"><span class="kicker">ENH·02</span><h4>Themed Regeneration</h4><p>The same regeneration engine, art-directed to a theme. At CMA Fest, guests stepped out of the booth in full “Western Glam.”</p></div>
     </div>
     <div class="card">
@@ -368,7 +379,7 @@ footer .fine a{color:var(--muted)}
       <div class="txt"><span class="kicker">ENH·03</span><h4>AI Head Swap</h4><p>The guest’s face on a pre-approved branded body and scene — racing suits for Chevy and Cadillac with every logo, seam, and sponsor mark 100% on point.</p></div>
     </div>
     <div class="card">
-      <div class="art"><img src="assets/img/enhance-1.jpg" alt="AI background removal example with guests beside an EV" loading="lazy"></div>
+      <div class="art"><img src="assets/img/enhance-1.jpg" alt="AI background removal example with guests beside an EV" loading="lazy" width="933" height="1400"></div>
       <div class="txt"><span class="kicker">ENH·04</span><h4>AI Background Removal</h4><p>The subjects stay exactly as shot — lifted from the booth and placed naturally into the scene, like this EV moment.</p></div>
     </div>
     <div class="card">
@@ -387,19 +398,19 @@ footer .fine a{color:var(--muted)}
   </div>
   <div class="cards reveal">
     <div class="card">
-      <div class="art"><img src="assets/img/takeaway-magnets.webp" alt="Chevrolet State Fair of Texas magnets on a refrigerator" loading="lazy"></div>
+      <div class="art"><img src="assets/img/takeaway-magnets.webp" alt="Chevrolet State Fair of Texas magnets on a refrigerator" loading="lazy" width="828" height="552"></div>
       <div class="txt"><span class="kicker">TA·01</span><h4>Magnets</h4><p>Pressed on site, minutes after capture — square, round, or postcard-sized. Shown from the State Fair of Texas for Chevrolet.</p></div>
     </div>
     <div class="card">
-      <div class="art"><img src="assets/img/takeaway-postcard.jpg" alt="Chevrolet State Fair of Texas postcard, front and back with QR code" loading="lazy"></div>
+      <div class="art"><img src="assets/img/takeaway-postcard.jpg" alt="Chevrolet State Fair of Texas postcard, front and back with QR code" loading="lazy" width="1119" height="1400"></div>
       <div class="txt"><span class="kicker">TA·02</span><h4>Postcards</h4><p>Front: the guest with Big Tex. Back: a stamped, art-directed mailer with a QR straight to the brand. Shown from the State Fair of Texas for Chevrolet.</p></div>
     </div>
     <div class="card">
-      <div class="art"><img src="assets/img/takeaway-cards.png" alt="Fan holding a Chevy Racing trading card of himself at the racetrack" loading="lazy"></div>
+      <div class="art"><img src="assets/img/takeaway-cards.jpg" alt="Fan holding a Chevy Racing trading card of himself at the racetrack" loading="lazy" width="1000" height="666"></div>
       <div class="txt"><span class="kicker">TA·03</span><h4>Trading Cards</h4><p>Every guest becomes a rookie card — sleeved, collectible, and branded. Built for Lexus, Ticketmaster, and Chevy Racing.</p></div>
     </div>
     <div class="card">
-      <div class="art"><img src="assets/img/takeaway-poster.webp" alt="UFC 290 personalized fight poster with mailing tube" loading="lazy"></div>
+      <div class="art"><img src="assets/img/takeaway-poster.webp" alt="UFC 290 personalized fight poster with mailing tube" loading="lazy" width="828" height="552"></div>
       <div class="txt"><span class="kicker">TA·04</span><h4>Posters</h4><p>Full-size prints of the money shot. At UFC weigh-ins, every fan steps on the scale and leaves with the poster to prove it.</p></div>
     </div>
   </div>
@@ -414,17 +425,17 @@ footer .fine a{color:var(--muted)}
   </div>
   <div class="cards reveal" id="gamification-cards">
     <div class="card">
-      <div class="art" data-video="assets/video/karaoke.mp4?v=2" data-poster="assets/poster/karaoke.jpg?v=2"><div class="ph"><b>Car Karaoke</b><span>Footage dropping in shortly</span></div></div>
-      <div class="txt"><span class="kicker">GAME·01</span><h4>Car Karaoke</h4><p>Guests take the driver’s seat and perform — cameras rolling, lyrics on screen, and a share-ready music video delivered at the door. Built for Chevrolet at the CMA Awards.</p><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="art vwrap"><video preload="none" poster="assets/poster/karaoke.jpg?v=2" src="assets/video/karaoke.mp4?v=2" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <div class="txt"><span class="kicker">GAME·01</span><h4>Car Karaoke</h4><p>Guests take the driver’s seat and perform — cameras rolling, lyrics on screen, and a share-ready music video delivered at the door. Built for Chevrolet at the CMA Awards.</p><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
     </div>
     <div class="card">
-      <div class="art" data-video="assets/video/pitch.mp4" data-poster="assets/poster/pitch.jpg"><div class="ph"><b>Pitch ATM</b><span>Footage dropping in shortly</span></div></div>
+      <div class="art vwrap"><video preload="none" poster="assets/poster/pitch.jpg" src="assets/video/pitch.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
       <div class="txt"><span class="kicker">GAME·02</span><h4>Pitch Against the Machine</h4><p>A radar-tracked pitching duel against a pro on screen. Speed, accuracy, and bragging rights — with a leaderboard to keep the midway packed. Built for Chevy at Speedway Classic.</p>
-      <a class="case" href="https://pivotxp.com/case-studies/chevy-baseball-pitch-interactive-activation-system" target="_blank" rel="noopener">Read the case study</a><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <a class="case" href="https://pivotxp.com/case-studies/chevy-baseball-pitch-interactive-activation-system" target="_blank" rel="noopener">Read the case study</a><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
     </div>
     <div class="card">
-      <div class="art" data-video="assets/video/leaderboards.mp4" data-poster="assets/poster/leaderboards.jpg"><div class="ph"><b>Leaderboards</b><span>Footage dropping in shortly</span></div></div>
-      <div class="txt"><span class="kicker">GAME·03</span><h4>Leaderboards</h4><p>Live standings on any screen on site, updated the moment a score lands. Run at LIV Golf, NFL Bootcamp, and for US Cellular.</p><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch"></span></div>
+      <div class="art vwrap"><video preload="none" poster="assets/poster/leaderboards.jpg" src="assets/video/leaderboards.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <div class="txt"><span class="kicker">GAME·03</span><h4>Leaderboards</h4><p>Live standings on any screen on site, updated the moment a score lands. Run at LIV Golf, NFL Bootcamp, and for US Cellular.</p><span class="intouch"><em>works with</em><img src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34"></span></div>
     </div>
   </div>
 </section>
@@ -437,28 +448,28 @@ footer .fine a{color:var(--muted)}
     <p>The unglamorous layer that makes the glamorous parts reliable. One identity system underneath every touchpoint — so the data you promised the client actually shows up.</p>
   </div>
   <article class="product reveal" style="border-top:none;padding-top:0">
-    <div class="stage stage-logo"><img src="assets/img/starlink-logo.svg" alt="Starlink" loading="lazy"></div>
+    <div class="stage stage-logo"><img src="assets/img/starlink-logo.svg" alt="Starlink" loading="lazy" width="1032" height="524"></div>
     <div class="info">
       <span class="kicker">PLAT·01</span>
       <h3>Event Internet</h3>
       <p class="desc">Rented by the event, deployed by our crew. Starlink units put full-bandwidth internet anywhere outdoors — a parking lot, a ski slope, a fairground — and for footprints that need extra coverage, we run redundant Wi-Fi systems with live backups. The activation never waits on venue internet.</p>
       <div class="specs"><span>Starlink rental fleet</span><span>Redundant Wi-Fi mesh</span><span>Live failover backups</span><span>Full outdoor coverage</span></div>
       <div class="media">
-        <figure><img src="assets/img/starlink-event.jpg" alt="Speed test showing 211 Mbps over a festival crowd" loading="lazy"><figcaption>211 Mbps over a festival floor</figcaption></figure>
+        <figure><img src="assets/img/starlink-event.jpg" alt="Speed test showing 211 Mbps over a festival crowd" loading="lazy" width="1400" height="933"><figcaption>211 Mbps over a festival floor</figcaption></figure>
       </div>
     </div>
   </article>
   <div class="intouch-band reveal">
     <div class="ib-copy">
-      <img class="ib-logo" src="assets/img/intouch-logo.svg" alt="InTouch">
+      <img class="ib-logo" src="assets/img/intouch-logo.svg" alt="InTouch" width="142" height="34">
       <h3>One registration.<br>Every activation.</h3>
-      <p>Every product in this catalog integrates with <b>InTouch</b>, the lead-capture system running the event. Guests register once on InTouch’s tablets and everything Pivot builds recognizes them from there — no retyping, no second sign-up, and the data itself stays inside InTouch’s secure system.</p>
+      <p>Every product in this catalog integrates with <b>InTouch</b>, the lead-capture system running the event. Guests register once on InTouch’s tablets and everything Pivot builds recognizes them from there — no retyping, no second sign-up. Guest data lives in InTouch’s secure system, so Pivot never adds a data-handling surface to your compliance review.</p>
     </div>
     <div class="ib-flow">
       <div class="step"><i>01</i><div><b>Register once</b><span>Guests sign up on InTouch’s tablet system at the entrance.</span></div></div>
       <div class="step"><i>02</i><div><b>Get a QR code or RFID bracelet</b><span>Their credential for the whole footprint.</span></div></div>
       <div class="step"><i>03</i><div><b>Tap at any Pivot piece</b><span>Booths, games, leaderboards — every unit reads it. Nobody enters their info twice.</span></div></div>
-      <div class="step"><i>04</i><div><b>Shared data flows back</b><span>We receive each guest’s shared data through InTouch, and it stays secured in the InTouch system.</span></div></div>
+      <div class="step"><i>04</i><div><b>Shared data flows back</b><span>We receive each guest’s shared data through InTouch — views, plays, and prints tied to a real lead.</span></div></div>
     </div>
   </div>
 </section>
@@ -472,12 +483,12 @@ footer .fine a{color:var(--muted)}
   </div>
   <div class="media reveal field-grid">
     <figure class="vwrap"><video preload="none" poster="assets/poster/install-liv.jpg" src="assets/video/install-liv.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></figure>
-    <figure><img src="assets/img/field-armynavy.jpg" alt="Chevrolet football toss cage at the Army-Navy game with live scoreboard and leaderboard" loading="lazy"></figure>
-    <figure><img src="assets/img/field-uscellular.jpg" alt="US Cellular giant boombox button wall at Summerfest" loading="lazy"></figure>
-    <figure><img src="assets/img/field-ally.jpg" alt="Ally ACC Women's Tournament basketball bucket wall with live leaderboard" loading="lazy"></figure>
-    <figure><img src="assets/img/field-trowe.jpg" alt="T. Rowe Price Curiosity Challenge trivia podium at the ACC Men's Tournament" loading="lazy"></figure>
+    <figure><img src="assets/img/field-armynavy.jpg" alt="Chevrolet football toss cage at the Army-Navy game with live scoreboard and leaderboard" loading="lazy" width="1600" height="900"></figure>
+    <figure><img src="assets/img/field-uscellular.jpg" alt="US Cellular giant boombox button wall at Summerfest" loading="lazy" width="1600" height="1200"></figure>
+    <figure><img src="assets/img/field-ally.jpg" alt="Ally ACC Women's Tournament basketball bucket wall with live leaderboard" loading="lazy" width="1299" height="1400"></figure>
+    <figure><img src="assets/img/field-trowe.jpg" alt="T. Rowe Price Curiosity Challenge trivia podium at the ACC Men's Tournament" loading="lazy" width="1233" height="1600"></figure>
     <figure class="vwrap"><video preload="none" poster="assets/poster/field-experience.jpg" src="assets/video/field-experience.mp4" playsinline></video><span class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></figure>
-    <figure><img src="assets/img/install-photo.jpg" alt="Custom activation install" loading="lazy"></figure>
+    <figure><img src="assets/img/install-photo.jpg" alt="Custom activation install" loading="lazy" width="1400" height="1050"></figure>
   </div>
 </section>
 
@@ -499,7 +510,7 @@ footer .fine a{color:var(--muted)}
         <div class="s"><b>Any screen</b><span>Kiosk, tablet, phone, web</span></div>
         <div class="s"><b>CMS-ready</b><span>Swap videos, no rebuild</span></div>
       </div>
-      <a class="pc-cta" href="polaris.html">Open the full-page version →</a>
+      <a class="pc-cta" href="polaris.html" target="_blank" rel="noopener">Open the full-page version →</a>
     </div>
     <div class="pg-unit">
       <iframe src="polaris-embed.html" title="Polaris Tough Doesn't Quit — interactive kiosk demo" loading="lazy" scrolling="no"></iframe>
@@ -509,7 +520,7 @@ footer .fine a{color:var(--muted)}
 
   <div class="proof-grid flip reveal">
     <div class="pg-copy">
-      <span class="kicker">Live demo · Chevy “Name That Traverse”</span>
+      <span class="kicker">Live demo · Chevy “Equinox Music Trivia”</span>
       <h3>The leaderboard that<br>keeps a midway loud</h3>
       <p>At CMA Fest, guests played Equinox Music Trivia on booth tablets and their scores hit this arcade board seconds later — names typing in retro-style, standings reshuffling in front of the crowd. This unit is the real leaderboard screen from that build, fed by simulated score submissions so you can watch it work.</p>
       <div class="pg-stats">
@@ -521,7 +532,7 @@ footer .fine a{color:var(--muted)}
       <a class="pc-cta" href="leaderboard-embed.html" target="_blank" rel="noopener">Open it full screen →</a>
     </div>
     <div class="pg-unit">
-      <iframe src="leaderboard-embed.html" title="Name That Traverse — live leaderboard demo" loading="lazy" scrolling="no"></iframe>
+      <iframe src="leaderboard-embed.html" title="Equinox Music Trivia — live leaderboard demo" loading="lazy" scrolling="no"></iframe>
       <p class="pg-cap">Interactive — scores roll in as you watch</p>
     </div>
   </div>
@@ -561,14 +572,14 @@ footer .fine a{color:var(--muted)}
     <p>Every photo, video, and render in this catalog — full resolution, organized by product, ready to drop into your client presentations. If you need a specific format, wrap mock-up, or client-branded comp, we’ll turn it around.</p>
   </div>
   <div class="actions">
-    <a class="primary" href="https://drive.google.com/drive/folders/12oyMfS5YtjwqjWB_iHk6fWnoakLCNZFn" target="_blank" rel="noopener">Open the Asset Kit</a>
-    <a class="ghost" href="mailto:matt@pivotxp.com?subject=Jack%20Morton%20%C3%97%20Pivot%20%E2%80%94%20Asset%20request">Request a custom comp</a>
+    <a class="primary" href="kit.html">Open the Asset Kit</a>
+    <a class="ghost" href="mailto:mikah@pivotxp.com?subject=Jack%20Morton%20%C3%97%20Pivot%20%E2%80%94%20Asset%20request">Request a custom comp</a>
   </div>
 </div>
 
 <footer>
-  <img src="assets/img/pivot-logo.png" alt="PivotXP">
-  <p class="fine">Built for activations that cannot fail&nbsp;·&nbsp;<a href="https://pivotxp.com" target="_blank" rel="noopener">pivotxp.com</a>&nbsp;·&nbsp;<a href="mailto:matt@pivotxp.com">matt@pivotxp.com</a></p>
+  <img src="assets/img/pivot-logo.png" alt="PivotXP" width="2101" height="607">
+  <p class="fine">Built for activations that cannot fail&nbsp;·&nbsp;<a href="https://pivotxp.com" target="_blank" rel="noopener">pivotxp.com</a>&nbsp;·&nbsp;<a href="mailto:mikah@pivotxp.com">mikah@pivotxp.com</a></p>
 </footer>
 
 <div id="lightbox" role="dialog" aria-modal="true">
@@ -581,13 +592,25 @@ footer .fine a{color:var(--muted)}
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
 
+// pause live demo iframes while off-screen
+const frameIO=new IntersectionObserver(es=>es.forEach(e=>{
+  try{e.target.contentWindow.postMessage({cmd:e.isIntersecting?'resume':'pause'},'*')}catch(_){}
+}),{threshold:.05});
+document.querySelectorAll('.pg-unit iframe,.duo iframe').forEach(f=>{
+  if(f.complete||true)f.addEventListener('load',()=>frameIO.observe(f));
+  frameIO.observe(f);
+});
+
 // gallery lightbox: images and videos open enlarged in a frame
 const lb=document.getElementById('lightbox'),lbMedia=lb.querySelector('.lb-media'),lbCap=lb.querySelector('.lb-cap');
-function lbOpen(node,cap){lbMedia.innerHTML='';lbMedia.appendChild(node);lbCap.textContent=cap||'';lb.classList.add('open');document.body.style.overflow='hidden'}
-function lbClose(){const v=lbMedia.querySelector('video');if(v)v.pause();lbMedia.innerHTML='';lb.classList.remove('open');document.body.style.overflow=''}
+let lbPrevFocus=null;
+function lbOpen(node,cap){lbPrevFocus=document.activeElement;lbMedia.innerHTML='';lbMedia.appendChild(node);lbCap.textContent=cap||'';lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.lb-close')?.focus()}
+function lbClose(){const v=lbMedia.querySelector('video');if(v)v.pause();lbMedia.innerHTML='';lb.classList.remove('open');document.body.style.overflow='';lbPrevFocus?.focus?.()}
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-close'))lbClose()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lbClose()});
 document.querySelectorAll('.media figure').forEach(f=>{
+  f.setAttribute('role','button');f.setAttribute('tabindex','0');
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f.click()}});
   f.addEventListener('click',()=>{
     const cap=f.querySelector('figcaption')?.textContent||'';
     const vid=f.querySelector('video');
@@ -606,6 +629,8 @@ document.querySelectorAll('.media figure').forEach(f=>{
 // card artwork opens full-size in the lightbox (gamification keeps in-place play)
 document.querySelectorAll('.cards .card .art').forEach(a=>{
   if(a.closest('#gamification-cards'))return;
+  a.setAttribute('role','button');a.setAttribute('tabindex','0');
+  a.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();a.click()}});
   a.addEventListener('click',()=>{
     const cap=a.parentElement.querySelector('.txt h4')?.textContent||'';
     const vid=a.querySelector('video');
@@ -622,7 +647,7 @@ document.querySelectorAll('.cards .card .art').forEach(a=>{
   });
 });
 // click-to-play video wraps (legacy, now unused for .media)
-document.querySelectorAll('.vwrap:not(.media .vwrap):not(.cards .art)').forEach(w=>{
+document.querySelectorAll('#gamification-cards .art.vwrap').forEach(w=>{
   const v=w.querySelector('video');if(!v)return;
   w.addEventListener('click',()=>{
     if(w.classList.contains('playing')){if(v.paused)v.play();else v.pause();return}
@@ -636,23 +661,7 @@ document.querySelectorAll('.vwrap:not(.media .vwrap):not(.cards .art)').forEach(
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// gamification: swap image for video player when video assets exist
-document.querySelectorAll('[data-video]').forEach(async art=>{
-  try{
-    const head=await fetch(art.dataset.video,{method:'HEAD'});
-    if(!head.ok)return;
-    const img=art.querySelector('img,.ph');
-    const v=document.createElement('video');
-    v.preload='none';v.playsInline=true;v.poster=art.dataset.poster||'';v.src=art.dataset.video;
-    const btn=document.createElement('span');btn.className='playbtn';btn.innerHTML='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-    art.classList.add('vwrap');img.replaceWith(v);art.appendChild(btn);
-    art.addEventListener('click',()=>{
-      if(art.classList.contains('playing')){if(v.paused)v.play();else v.pause();return}
-      art.classList.add('playing');v.controls=true;v.play();
-    });
-    v.addEventListener('ended',()=>{art.classList.remove('playing');v.controls=false;v.load();});
-  }catch(e){}
-});
 </script>
+<script data-goatcounter="https://pivotxp-jm.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

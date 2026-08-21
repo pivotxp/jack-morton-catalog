@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Polaris "Tough Doesn't Quit" — Unity Kiosk, Rebuilt for Web · Pivot × Jack Morton</title>
 <meta name="robots" content="noindex">
+<meta property="og:title" content="Polaris Kiosk — Rebuilt for Web · Pivot">
+<meta property="og:description" content="A 6.1 GB Unity kiosk recreated as a webpage — live, interactive, and 130 MB.">
+<meta property="og:image" content="https://pivotxp.github.io/jack-morton-catalog/assets/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
 <style>
 :root{
   --bg:#0A0F0D; --surface:#111814; --raise:#17201B; --line:rgba(151,199,178,.14);
-  --ink:#F1F6F3; --muted:#96A8A0; --dim:#5F7169;
+  --ink:#F1F6F3; --muted:#96A8A0; --dim:#7C8F86;
   --mint:#3EE29B; --mint-deep:#1FA06C; --mint-ink:#062A1B;
   --disp:"Archivo",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
@@ -113,7 +117,7 @@ footer .fine a{color:var(--muted)}
 <body>
 
 <div class="top">
-  <a href="index.html"><img src="assets/img/pivot-logo.png" alt="PivotXP"></a>
+  <a href="index.html"><img src="assets/img/pivot-logo.png" alt="PivotXP" width="2101" height="607"></a>
   <a class="back" href="index.html#proof">← Back to the catalog</a>
 </div>
 
@@ -186,7 +190,7 @@ footer .fine a{color:var(--muted)}
 </div>
 
 <footer>
-  <p class="fine">Pivot × Jack Morton&nbsp;·&nbsp;Unity kiosk recreated for web&nbsp;·&nbsp;<a href="mailto:matt@pivotxp.com">matt@pivotxp.com</a></p>
+  <p class="fine">Pivot × Jack Morton&nbsp;·&nbsp;Unity kiosk recreated for web&nbsp;·&nbsp;<a href="mailto:mikah@pivotxp.com">mikah@pivotxp.com</a></p>
 </footer>
 
 <script>
@@ -202,7 +206,8 @@ const C2=[
 
 const T="assets/polaris/tiles/",V="assets/polaris/video/";
 function tile(img,vid,label,excerpt){
-  const f=document.createElement('figure');f.className='k-tile';
+  const f=document.createElement('figure');f.className='k-tile';f.setAttribute('role','button');f.setAttribute('tabindex','0');f.setAttribute('aria-label',label);
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPlayer(vid,label,excerpt)}});
   f.innerHTML=`<img class="ph" src="${T}${img}.png" alt="${label}" loading="lazy" draggable="false">`;
   f.addEventListener('click',()=>{if(!dragMoved)openPlayer(vid,label,excerpt)});
   return f;
@@ -229,7 +234,7 @@ document.querySelectorAll('.k-strip').forEach(strip=>{
 const player=document.getElementById('player'),pv=document.getElementById('pvideo'),pnote=document.getElementById('pnote');
 function openPlayer(vid,label,excerpt){
   pv.src=`${V}${vid}.mp4`;pnote.textContent=excerpt?'Excerpt — trimmed for web demo':'';
-  player.classList.add('open');pv.currentTime=0;pv.play().catch(()=>{});
+  player.classList.add('open');pv.play().catch(()=>{});
 }
 function closePlayer(){player.classList.remove('open');pv.pause();pv.removeAttribute('src');pv.load()}
 btnBack.addEventListener('click',closePlayer);
@@ -247,5 +252,6 @@ function wake(){if(attract.classList.contains('open')){attract.classList.remove(
 ['pointerdown','pointermove','touchstart','keydown'].forEach(ev=>document.getElementById('kiosk').addEventListener(ev,wake,{passive:true}));
 armIdle();
 </script>
+<script data-goatcounter="https://pivotxp-jm.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

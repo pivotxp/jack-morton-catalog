@@ -43,7 +43,7 @@
 
   // Device-created signs lead the rotation, newest first, tagged live
   stored.slice(-4).reverse().forEach(function (s, i) {
-    queue.push({ sign: s, live: true, no: SIGN_NO_BASE + stored.length - i });
+    queue.push({ sign: s, live: false, no: SIGN_NO_BASE + stored.length - i });
   });
   SAMPLES.forEach(function (s, i) {
     queue.push({ sign: s, live: false, no: SIGN_NO_BASE - 40 + i * 3 });
@@ -105,6 +105,14 @@
 
   var timer = setInterval(showNext, ROTATE_MS);
 
+  // parent catalog pauses rotation when the board is scrolled off-screen
+  var wallPaused = false;
+  window.addEventListener('message', function (e) {
+    if (!e.data || !e.data.cmd) return;
+    if (e.data.cmd === 'pause' && !wallPaused) { wallPaused = true; clearInterval(timer); }
+    if (e.data.cmd === 'resume' && wallPaused) { wallPaused = false; timer = setInterval(showNext, ROTATE_MS); }
+  });
+
   /* ---------- live signs from the fan app (same device) ---------- */
 
   function enqueueLive(sign) {
@@ -121,7 +129,7 @@
     };
   }
 
-  window.addEventListener('storage', function (e) {
+  if (!('BroadcastChannel' in window)) window.addEventListener('storage', function (e) {
     if (e.key !== STORE_KEY || !e.newValue) return;
     try {
       var all = JSON.parse(e.newValue);
