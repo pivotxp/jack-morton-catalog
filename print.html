@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Pivot × Jack Morton — Experience Catalog (Print)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Instrument+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+:root{
+  --bg:#0A0F0D; --ink:#101828; --paper:#FAFBFA; --muted:#5B6B64; --line:#E2E8E5;
+  --mint:#1FA06C; --mint-bright:#3EE29B;
+  --disp:"Archivo",sans-serif; --body:"Instrument Sans",sans-serif; --mono:"IBM Plex Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:letter;margin:0}
+body{font-family:var(--body);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;padding:.62in .7in;page-break-after:always;position:relative;background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+.page.dark{background:radial-gradient(9in 5in at 85% -10%,rgba(62,226,155,.12),transparent 60%),var(--bg);color:#F1F6F3}
+img{max-width:100%}
+.mono{font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.footer{position:absolute;left:.7in;right:.7in;bottom:.4in;display:flex;justify-content:space-between;font-family:var(--mono);font-size:6.4pt;letter-spacing:.14em;text-transform:uppercase;color:#9AA8A1}
+.footer .mid{color:var(--mint)}
+.sec-head{display:flex;align-items:baseline;gap:.22in;border-top:2.5px solid var(--ink);padding-top:.14in;margin-bottom:.22in}
+.sec-head .num{font-family:var(--mono);font-size:8pt;color:var(--mint);letter-spacing:.15em}
+.sec-head h2{font-family:var(--disp);font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:21pt;letter-spacing:-.01em}
+.sec-head p{margin-left:auto;max-width:2.9in;font-size:7.6pt;color:var(--muted);align-self:center}
+
+/* cover */
+.cover{justify-content:center}
+.cover .lockup{position:absolute;top:.62in;left:.7in;display:flex;align-items:center;gap:.16in}
+.cover .lockup img{height:.24in;width:auto}
+.cover .lockup .x{font-family:var(--mono);color:#5F7169;font-size:9pt}
+.cover .eyebrow{font-family:var(--mono);font-size:8pt;letter-spacing:.22em;text-transform:uppercase;color:var(--mint-bright);margin-bottom:.25in}
+.cover h1{font-family:var(--disp);font-weight:840;font-stretch:118%;text-transform:uppercase;font-size:52pt;line-height:.95;letter-spacing:-.015em}
+.cover h1 em{font-style:normal;color:var(--mint-bright)}
+.cover .prep{margin-top:.35in;font-family:var(--mono);font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:#96A8A0}
+.cover .prep b{color:#F1F6F3;font-weight:500}
+.cover .lede{margin-top:.2in;max-width:4.6in;color:#96A8A0;font-size:10.5pt}
+
+/* product rows */
+.prod{display:grid;grid-template-columns:1.55in 1fr;gap:.22in;padding:.14in 0;border-top:1px solid var(--line);align-items:center}
+.prod:first-of-type{border-top:none;padding-top:0}
+.prod .stage{background:#EFF3F1;border-radius:4px;height:1.28in;display:flex;align-items:center;justify-content:center;padding:.08in}
+.prod .stage img{max-height:1.14in;width:auto;max-width:100%}
+.prod .kick{font-family:var(--mono);font-size:6.4pt;letter-spacing:.18em;color:#8A968F;text-transform:uppercase}
+.prod h3{font-family:var(--disp);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:12.5pt;margin:.02in 0 .04in}
+.prod p{font-size:8pt;color:var(--muted);max-width:5.1in}
+.prod .pills{margin-top:.05in;font-family:var(--mono);font-size:6.2pt;letter-spacing:.06em;text-transform:uppercase;color:#7A8781}
+.prod .pills b{color:var(--mint);font-weight:500}
+
+/* card grids */
+.grid{display:grid;gap:.14in}
+.g5{grid-template-columns:repeat(5,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.cardp{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.cardp img{width:100%;height:1.5in;object-fit:cover;display:block}
+.cardp .t{padding:.08in .1in .1in}
+.cardp .kick{font-family:var(--mono);font-size:5.8pt;letter-spacing:.16em;color:#8A968F;text-transform:uppercase}
+.cardp h4{font-family:var(--disp);font-weight:700;font-stretch:108%;text-transform:uppercase;font-size:8.6pt;margin:.02in 0}
+.cardp p{font-size:6.8pt;color:var(--muted);line-height:1.45}
+.subsec{margin-top:.3in}
+
+/* platform */
+.band{border:1.5px solid var(--mint);border-radius:6px;padding:.18in .22in;display:grid;grid-template-columns:2.5in 1fr;gap:.25in;align-items:center;margin-bottom:.2in}
+.band img.itl{height:.2in;width:auto;margin-bottom:.08in}
+.band h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:13pt;line-height:1.1;margin-bottom:.06in}
+.band p{font-size:7.6pt;color:var(--muted)}
+.steps{display:grid;gap:.07in}
+.steps .st{display:flex;gap:.12in;align-items:baseline;border:1px solid var(--line);border-radius:4px;padding:.07in .12in;background:#fff}
+.steps .st i{font-family:var(--mono);font-style:normal;font-size:6.6pt;color:var(--mint)}
+.steps .st b{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:7.6pt;display:block}
+.steps .st span{font-size:6.8pt;color:var(--muted)}
+
+/* field grid */
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.14in}
+.fgrid img{width:100%;height:1.85in;object-fit:cover;border-radius:4px;display:block}
+
+/* demos page */
+.demo{display:grid;grid-template-columns:1.1in 1fr;gap:.2in;padding:.16in 0;border-top:1px solid var(--line);align-items:center}
+.demo:first-of-type{border-top:none}
+.demo img{width:100%;height:1.5in;object-fit:cover;object-position:top;border-radius:4px}
+.demo h3{font-family:var(--disp);font-weight:800;font-stretch:110%;text-transform:uppercase;font-size:12pt;margin-bottom:.03in}
+.demo p{font-size:8pt;color:var(--muted);max-width:5.4in}
+.demo .url{font-family:var(--mono);font-size:7pt;color:var(--mint);margin-top:.04in;letter-spacing:.04em}
+.kitrow{margin-top:.28in;border:1.5px solid var(--ink);border-radius:6px;padding:.16in .2in}
+.kitrow h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:12pt;margin-bottom:.05in}
+.kitrow p{font-size:8pt;color:var(--muted)}
+.kitrow .url{font-family:var(--mono);font-size:7.6pt;color:var(--mint);margin-top:.05in}
+
+/* back */
+.back{justify-content:center}
+.back h2{font-family:var(--disp);font-weight:840;font-stretch:110%;text-transform:uppercase;font-size:30pt;line-height:1;margin-bottom:.2in}
+.back p{color:#96A8A0;max-width:4.8in;font-size:10pt}
+.back .cta{display:inline-block;margin-top:.3in;font-family:var(--mono);font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:#062A1B;background:var(--mint-bright);padding:.12in .2in;border-radius:3px;width:fit-content}
+.back .fine{margin-top:.5in;font-family:var(--mono);font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:#5F7169}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page dark cover">
+  <div class="lockup"><img src="assets/img/pivot-logo.png" alt=""><span class="x">×</span><img src="assets/img/jackmorton-logo.svg" alt="" style="height:.15in"></div>
+  <p class="eyebrow">PivotXP · Experiential Technology</p>
+  <h1>The<br>Experience<br><em>Catalog</em></h1>
+  <p class="prep">Prepared for <b>Jack Morton</b> · August 2026</p>
+  <p class="lede">Capture systems, gamification, AI enhancements, and physical takeaways — every unit in this catalog is built, wrapped, and supported by Pivot for activations that cannot fail.</p>
+  <div class="footer" style="color:#5F7169"><span>pivotxp.github.io/jack-morton-catalog</span><span class="mid" style="color:#3EE29B">Interactive edition online — live demos included</span><span>mikah@pivotxp.com</span></div>
+</div>
+
+<!-- BOOTHS -->
+<div class="page">
+  <div class="sec-head"><span class="num">01</span><h2>The Booth Line</h2><p>Six capture systems, one standard: broadcast-quality output, full custom wraps, and uptime your producers can bet on. Every unit works with InTouch and supports AI background removal.</p></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-lite.png"></div><div><span class="kick">PB·01</span><h3>Selfie Station</h3><p>The ring-light icon, rebuilt as brandable real estate. A freestanding kiosk with a halo light and a full-wrap column — keeps a line moving all day.</p><p class="pills">Stills · GIF · Boomerang · Video&ensp;/&ensp;SMS · Email · QR&ensp;/&ensp;2 ft footprint&ensp;·&ensp;<b>GMC Basecamp · GM Rewards · Downy Unstopables</b></p></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-pro.png"></div><div><span class="kick">PB·02</span><h3>PRO</h3><p>DSLR-grade capture with an adjustable head and dual-sided display — the photographer-quality booth without the photographer.</p><p class="pills">DSLR capture · Stills · GIF · Boomerang · Video · Physical takeaways&ensp;·&ensp;<b>Chevrolet · UFC</b></p></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-kiosk.png"></div><div><span class="kick">PB·03</span><h3>Elevated Kiosk</h3><p>The statement piece. Full-body kiosk with programmable LED edge lighting, a large portrait touch display, and DSLR-grade capture — optional printing puts a takeaway in hand in seconds.</p><p class="pills">DSLR capture · Optional printing · Physical takeaways&ensp;·&ensp;<b>GM — Driving Innovation Forward</b></p></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-robot.png"></div><div><span class="kick">PB·04</span><h3>Robot</h3><p>A rail-mounted robotic arm with programmable, cinematic slow-mo moves. A crowd magnet that shoots like a camera operator.</p><p class="pills">Programmable moves · Cinematic slow-mo&ensp;·&ensp;<b>Chevrolet CMA Awards · NFL Salute to Service · Marvel × AmFam</b></p></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-360.png"></div><div><span class="kick">PB·05</span><h3>360 Camera</h3><p>Slow-motion orbit video with branded overlays, delivered before guests walk away. Mount it on truss for cinematic vehicle capture, or floor-mount when space is tight.</p><p class="pills">Truss or floor mount · Instant delivery&ensp;·&ensp;<b>CMA Fest · Chevrolet</b></p></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-array.png"></div><div><span class="kick">PB·06</span><h3>Array</h3><p>Bullet-time from a 7- or 14-camera gantry. Every lens fires in sync to freeze the moment, then sweep around it — branded end to end.</p><p class="pills">7 or 14 cameras, synced · Freeze + sweep&ensp;·&ensp;<b>Argylle premiere · Universal Studios</b></p></div></div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Every unit works with InTouch</span><span>01</span></div>
+</div>
+
+<!-- ENHANCEMENTS + TAKEAWAYS -->
+<div class="page">
+  <div class="sec-head"><span class="num">02</span><h2>AI Enhancements</h2><p>A software layer that works on every booth in the line — rendered in seconds, on site.</p></div>
+  <div class="grid g5">
+    <div class="cardp"><img src="assets/img/enhance-throwing.jpg"><div class="t"><span class="kick">ENH·01</span><h4>AI Image Regeneration</h4><p>A guest’s photo becomes the input to a full prompt — regenerated inside a brand-built scene.</p></div></div>
+    <div class="cardp"><img src="assets/img/enhance-western-glam.jpg"><div class="t"><span class="kick">ENH·02</span><h4>Themed Regeneration</h4><p>The same engine, art-directed to a theme — “Western Glam” at CMA Fest.</p></div></div>
+    <div class="cardp"><img src="assets/poster/ai-suit.jpg"><div class="t"><span class="kick">ENH·03</span><h4>AI Head Swap</h4><p>The guest’s face on a pre-approved branded body — every logo 100% on point.</p></div></div>
+    <div class="cardp"><img src="assets/img/enhance-1.jpg"><div class="t"><span class="kick">ENH·04</span><h4>AI Background Removal</h4><p>Subjects stay exactly as shot — placed naturally into the scene.</p></div></div>
+    <div class="cardp"><img src="assets/poster/enhance-name-sign.jpg"><div class="t"><span class="kick">ENH·05</span><h4>Personalized Signage</h4><p>Guests type their name and it renders into the scene — like this neon marquee.</p></div></div>
+  </div>
+  <div class="subsec">
+    <div class="sec-head"><span class="num">03</span><h2>Physical Takeaways</h2><p>These leave the event on refrigerators, desks, and binders — and keep the brand living there long after load-out.</p></div>
+    <div class="grid g4">
+      <div class="cardp"><img src="assets/img/takeaway-magnets.webp"><div class="t"><span class="kick">TA·01</span><h4>Magnets</h4><p>Pressed on site, minutes after capture — square, round, or postcard-sized. State Fair of Texas for Chevrolet.</p></div></div>
+      <div class="cardp"><img src="assets/img/takeaway-postcard.jpg"><div class="t"><span class="kick">TA·02</span><h4>Postcards</h4><p>Front: the guest with Big Tex. Back: an art-directed mailer with a QR to the brand.</p></div></div>
+      <div class="cardp"><img src="assets/img/takeaway-cards.jpg"><div class="t"><span class="kick">TA·03</span><h4>Trading Cards</h4><p>Every guest becomes a rookie card — sleeved, collectible, branded. Lexus, Ticketmaster, Chevy Racing.</p></div></div>
+      <div class="cardp"><img src="assets/img/takeaway-poster.webp"><div class="t"><span class="kick">TA·04</span><h4>Posters</h4><p>Full-size prints of the money shot — at UFC weigh-ins, fans leave with the proof.</p></div></div>
+    </div>
+  </div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Rendered in seconds, on site</span><span>02</span></div>
+</div>
+
+<!-- GAMIFICATION + PLATFORM -->
+<div class="page">
+  <div class="sec-head"><span class="num">04</span><h2>Gamification &amp; Custom Software</h2><p>Give guests something to win and they’ll queue for it — custom game builds with real-time scoring.</p></div>
+  <div class="grid g3">
+    <div class="cardp"><img src="assets/poster/karaoke.jpg"><div class="t"><span class="kick">GAME·01</span><h4>Car Karaoke</h4><p>Guests take the driver’s seat and perform — share-ready music video at the door. Chevrolet, CMA Awards.</p></div></div>
+    <div class="cardp"><img src="assets/poster/pitch.jpg"><div class="t"><span class="kick">GAME·02</span><h4>Pitch Against the Machine</h4><p>A radar-tracked pitching duel against a pro on screen. Chevy at Speedway Classic.</p></div></div>
+    <div class="cardp"><img src="assets/poster/leaderboards.jpg"><div class="t"><span class="kick">GAME·03</span><h4>Leaderboards</h4><p>Live standings on any screen, updated the moment a score lands. LIV Golf, NFL Bootcamp, US Cellular.</p></div></div>
+  </div>
+  <div class="subsec">
+    <div class="sec-head"><span class="num">05</span><h2>Platform &amp; Connectivity</h2><p>One identity system underneath every touchpoint — so the data you promised the client actually shows up.</p></div>
+    <div class="band">
+      <div><img class="itl" src="assets/img/starlink-logo.svg" style="height:.28in;filter:invert(1) brightness(.2)"><h3>Event Internet</h3><p>Starlink rentals put full bandwidth anywhere outdoors, and redundant Wi-Fi systems with live backups keep coverage up. The activation never waits on venue internet.</p></div>
+      <div><img class="itl" src="assets/img/intouch-logo.svg" style="filter:invert(1) brightness(.2)"><p style="margin-bottom:.06in"><b>Every product works with InTouch</b>, the lead-capture system running the event.</p>
+        <div class="steps">
+          <div class="st"><i>01</i><div><b>Register once</b> <span>on InTouch’s tablets at the entrance.</span></div></div>
+          <div class="st"><i>02</i><div><b>QR code or RFID bracelet</b> <span>— one credential for the whole footprint.</span></div></div>
+          <div class="st"><i>03</i><div><b>Tap at any Pivot piece</b> <span>— nobody enters their info twice.</span></div></div>
+          <div class="st"><i>04</i><div><b>Data flows back</b> <span>— secured in InTouch, no new compliance surface.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Custom builds · real-time scoring</span><span>03</span></div>
+</div>
+
+<!-- IN THE FIELD -->
+<div class="page">
+  <div class="sec-head"><span class="num">06</span><h2>In The Field</h2><p>Beyond the booth line: full custom sets, broadcast desks, and branded builds — designed, fabricated, and run by Pivot crews.</p></div>
+  <div class="fgrid">
+    <img src="assets/poster/install-liv.jpg">
+    <img src="assets/img/field-armynavy.jpg">
+    <img src="assets/img/field-uscellular.jpg">
+    <img src="assets/img/field-ally.jpg">
+    <img src="assets/img/field-trowe.jpg">
+    <img src="assets/img/install-photo.jpg">
+  </div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Designed · fabricated · crewed</span><span>04</span></div>
+</div>
+
+<!-- LIVE DEMOS + KIT -->
+<div class="page">
+  <div class="sec-head"><span class="num">07</span><h2>Proof of Work</h2><p>The online edition of this catalog runs three real client builds you can drive in the browser — no install, any device.</p></div>
+  <div class="demo"><img src="assets/polaris/tiles/Mud_Test.png"><div><h3>Polaris “Tough Doesn’t Quit” Kiosk</h3><p>A 6.1 GB Unity kiosk rebuilt as a 130 MB webpage — magnetic carousels, tap-to-play, idle attract loop, and every interaction captured for reporting.</p><p class="url">pivotxp.github.io/jack-morton-catalog/polaris.html</p></div></div>
+  <div class="demo"><img src="assets/ntt/leaderboard_bg.png"><div><h3>Equinox Music Trivia Leaderboard</h3><p>The real CMA Fest arcade leaderboard screen, fed by simulated score submissions so you can watch standings shuffle live.</p><p class="url">pivotxp.github.io/jack-morton-catalog/#proof</p></div></div>
+  <div class="demo"><img src="assets/poster/field-experience.jpg"><div><h3>AbbVie × MLB Strikeout Wall</h3><p>Build a dedication sign on the fan phone and watch it hit the stadium board seconds later — the full phone-to-jumbotron pipeline, live on the page.</p><p class="url">pivotxp.github.io/jack-morton-catalog/#proof</p></div></div>
+  <div class="kitrow">
+    <h3>Take the assets with you</h3>
+    <p>Every photo, video, and render in this catalog — full resolution, organized by product line in five downloadable packs. No sign-in.</p>
+    <p class="url">pivotxp.github.io/jack-morton-catalog/kit.html</p>
+  </div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Live demos in the online edition</span><span>05</span></div>
+</div>
+
+<!-- BACK -->
+<div class="page dark back">
+  <h2>Built for activations<br>that cannot fail.</h2>
+  <p>Booths, games, AI, takeaways, connectivity, and the software underneath it all — one vendor, one standard, wrapped in your client’s brand.</p>
+  <span class="cta">pivotxp.github.io/jack-morton-catalog</span>
+  <p class="fine">PivotXP × Jack Morton&nbsp;·&nbsp;pivotxp.com&nbsp;·&nbsp;mikah@pivotxp.com</p>
+</div>
+
+</body>
+</html>
