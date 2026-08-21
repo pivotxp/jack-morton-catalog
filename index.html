@@ -133,18 +133,17 @@ section{padding:clamp(4rem,9vw,7.5rem) clamp(1.2rem,6vw,5rem)}
 @media(max-width:800px){.kit{grid-template-columns:1fr}}
 
 /* ---------- proof of work ---------- */
-.proof-card{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;border:1px solid var(--line);border-radius:8px;
-  padding:clamp(1.5rem,3.5vw,2.8rem);background:
-  radial-gradient(700px 320px at 90% -20%,rgba(62,226,155,.08),transparent 60%),
-  linear-gradient(180deg,var(--surface),var(--bg));transition:border-color .25s,transform .25s}
-.proof-card:hover{border-color:rgba(62,226,155,.45);transform:translateY(-2px)}
-.proof-card h3{font-family:var(--disp);font-weight:800;font-stretch:105%;text-transform:uppercase;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.1;margin:.7rem 0 .8rem}
-.proof-card p{color:var(--muted);font-size:.95rem;max-width:52ch}
-.pc-cta{display:inline-block;margin-top:1.2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
-.pc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
-.pc-tiles img{width:100%;aspect-ratio:400/430;object-fit:cover;object-position:top;border-radius:4px;display:block}
-.pc-tiles img:nth-child(2){transform:translateY(-.8rem)}
-@media(max-width:760px){.proof-card{grid-template-columns:1fr}}
+.proof-grid{display:grid;grid-template-columns:minmax(300px,1fr) minmax(320px,470px);gap:clamp(2rem,4vw,4rem);align-items:center}
+.pg-copy h3{font-family:var(--disp);font-weight:800;font-stretch:105%;text-transform:uppercase;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.1;margin:.8rem 0 1rem}
+.pg-copy>p{color:var(--muted);font-size:.98rem;max-width:50ch}
+.pg-stats{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.6rem 0}
+.pg-stats .s{border:1px solid var(--line);border-radius:6px;padding:.85rem 1rem;background:linear-gradient(180deg,var(--surface),transparent)}
+.pg-stats .s b{display:block;font-family:var(--disp);font-weight:800;font-size:1.1rem;color:var(--mint);margin-bottom:.1rem}
+.pg-stats .s span{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.pc-cta{display:inline-block;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.pg-unit iframe{display:block;width:100%;aspect-ratio:100/188;border:none;overflow:hidden}
+.pg-cap{margin-top:.4rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center}
+@media(max-width:820px){.proof-grid{grid-template-columns:1fr}.pg-unit{max-width:440px;margin:0 auto;width:100%}}
 
 /* ---------- footer ---------- */
 footer{padding:4rem clamp(1.2rem,6vw,5rem) 3rem;display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);margin-top:clamp(4rem,8vw,6rem)}
@@ -401,19 +400,24 @@ footer .fine a{color:var(--muted)}
     <h2>Proof of Work</h2>
     <p>Don’t take the catalog’s word for it. This is a real client build — the Polaris “Tough Doesn’t Quit” touchscreen kiosk — recreated 1:1 as a webpage you can drive right now.</p>
   </div>
-  <a class="proof-card reveal" href="polaris.html">
-    <div class="pc-copy">
-      <span class="kicker">Live demo · Polaris</span>
+  <div class="proof-grid reveal">
+    <div class="pg-copy">
+      <span class="kicker">Live demo · Polaris “Tough Doesn’t Quit”</span>
       <h3>A 6.1 GB Unity kiosk,<br>rebuilt as a webpage</h3>
-      <p>Magnetic carousels, tap-to-play test footage and rider films, idle attract loop — everything the Windows build did, with no engine, no licenses, and no dedicated hardware.</p>
-      <span class="pc-cta">Open the working demo →</span>
+      <p>This ran as a Unity build on dedicated Windows hardware with licensed playback plugins. The unit on the right is that experience rebuilt as a plain webpage — and it’s live. Swipe the rows, tap a tile, walk away and the attract loop takes over.</p>
+      <div class="pg-stats">
+        <div class="s"><b>6.1 GB → 130 MB</b><span>Install footprint</span></div>
+        <div class="s"><b>0</b><span>Engine &amp; plugin licenses</span></div>
+        <div class="s"><b>Any screen</b><span>Kiosk, tablet, phone, web</span></div>
+        <div class="s"><b>CMS-ready</b><span>Swap videos, no rebuild</span></div>
+      </div>
+      <a class="pc-cta" href="polaris.html">Open the full-page version →</a>
     </div>
-    <div class="pc-tiles">
-      <img src="assets/polaris/tiles/Mud_Test.png" alt="Polaris mud test tile" loading="lazy">
-      <img src="assets/polaris/tiles/VickiGolden.png" alt="Vicki Golden rider tile" loading="lazy">
-      <img src="assets/polaris/tiles/Rock_Crawl_Test.png" alt="Rock crawl test tile" loading="lazy">
+    <div class="pg-unit">
+      <iframe src="polaris-embed.html" title="Polaris Tough Doesn't Quit — interactive kiosk demo" loading="lazy" scrolling="no"></iframe>
+      <p class="pg-cap">Interactive — this is the working unit, not a mock-up</p>
     </div>
-  </a>
+  </div>
 </section>
 
 <!-- ==================== ASSET KIT ==================== -->
