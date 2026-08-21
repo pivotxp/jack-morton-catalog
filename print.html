@@ -48,6 +48,16 @@ img{max-width:100%}
 .prod .pills{margin-top:.05in;font-family:var(--mono);font-size:6.2pt;letter-spacing:.06em;text-transform:uppercase;color:#7A8781}
 .prod .pills b{color:var(--mint);font-weight:500}
 
+/* media thumbs */
+.thumbs{display:flex;gap:.09in;margin-top:.08in}
+.thumbs a,.thumbs span.im{position:relative;display:block}
+.thumbs img{height:.92in;width:auto;max-width:1.6in;object-fit:cover;border-radius:3px;display:block;border:1px solid var(--line)}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:.26in;height:.26in;border-radius:50%;
+  background:rgba(6,15,11,.72);display:flex;align-items:center;justify-content:center}
+.play::after{content:"";display:block;width:0;height:0;border-left:.085in solid #fff;border-top:.055in solid transparent;border-bottom:.055in solid transparent;margin-left:.02in}
+.linknote{font-family:var(--mono);font-size:6.4pt;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:.16in}
+.cardp a.vlink{display:block;position:relative;color:inherit;text-decoration:none}
+
 /* card grids */
 .grid{display:grid;gap:.14in}
 .g5{grid-template-columns:repeat(5,1fr)}
@@ -75,6 +85,7 @@ img{max-width:100%}
 /* field grid */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.14in}
 .fgrid img{width:100%;height:1.85in;object-fit:cover;border-radius:4px;display:block}
+.fgrid a{display:block;position:relative}
 
 /* demos page */
 .demo{display:grid;grid-template-columns:1.1in 1fr;gap:.2in;padding:.16in 0;border-top:1px solid var(--line);align-items:center}
@@ -108,16 +119,29 @@ img{max-width:100%}
   <div class="footer" style="color:#5F7169"><span>pivotxp.github.io/jack-morton-catalog</span><span class="mid" style="color:#3EE29B">Interactive edition online — live demos included</span><span>mikah@pivotxp.com</span></div>
 </div>
 
-<!-- BOOTHS -->
+<!-- BOOTHS A -->
 <div class="page">
   <div class="sec-head"><span class="num">01</span><h2>The Booth Line</h2><p>Six capture systems, one standard: broadcast-quality output, full custom wraps, and uptime your producers can bet on. Every unit works with InTouch and supports AI background removal.</p></div>
-  <div class="prod"><div class="stage"><img src="assets/img/render-lite.png"></div><div><span class="kick">PB·01</span><h3>Selfie Station</h3><p>The ring-light icon, rebuilt as brandable real estate. A freestanding kiosk with a halo light and a full-wrap column — keeps a line moving all day.</p><p class="pills">Stills · GIF · Boomerang · Video&ensp;/&ensp;SMS · Email · QR&ensp;/&ensp;2 ft footprint&ensp;·&ensp;<b>GMC Basecamp · GM Rewards · Downy Unstopables</b></p></div></div>
-  <div class="prod"><div class="stage"><img src="assets/img/render-pro.png"></div><div><span class="kick">PB·02</span><h3>PRO</h3><p>DSLR-grade capture with an adjustable head and dual-sided display — the photographer-quality booth without the photographer.</p><p class="pills">DSLR capture · Stills · GIF · Boomerang · Video · Physical takeaways&ensp;·&ensp;<b>Chevrolet · UFC</b></p></div></div>
+  <p class="linknote">▶ Thumbnails are clickable — sample videos play in your browser.</p>
+  <div class="prod"><div class="stage"><img src="assets/img/render-lite.png"></div><div><span class="kick">PB·01</span><h3>Selfie Station</h3><p>The ring-light icon, rebuilt as brandable real estate. A freestanding kiosk with a halo light and a full-wrap column — keeps a line moving all day.</p><p class="pills">Stills · GIF · Boomerang · Video&ensp;/&ensp;SMS · Email · QR&ensp;/&ensp;2 ft footprint&ensp;·&ensp;<b>GMC Basecamp · GM Rewards · Downy Unstopables</b></p>
+  <div class="thumbs"><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/selfie-demo.mp4"><img src="assets/poster/selfie-demo.jpg"><span class="play"></span></a><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/selfie-unstopables.mp4"><img src="assets/poster/selfie-unstopables.jpg"><span class="play"></span></a><span class="im"><img src="assets/img/selfie-event-1.jpg"></span><span class="im"><img src="assets/img/selfie-event-3.jpg"></span></div></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-pro.png"></div><div><span class="kick">PB·02</span><h3>PRO</h3><p>DSLR-grade capture with an adjustable head and dual-sided display — the photographer-quality booth without the photographer.</p><p class="pills">DSLR capture · Stills · GIF · Boomerang · Video · Physical takeaways&ensp;·&ensp;<b>Chevrolet · UFC</b></p>
+  <div class="thumbs"><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/pro-demo-1.mp4"><img src="assets/poster/pro-demo-1.jpg"><span class="play"></span></a><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/pro-demo-2.mp4"><img src="assets/poster/pro-demo-2.jpg"><span class="play"></span></a><span class="im"><img src="assets/img/pro-output.jpg"></span></div></div></div>
   <div class="prod"><div class="stage"><img src="assets/img/render-kiosk.png"></div><div><span class="kick">PB·03</span><h3>Elevated Kiosk</h3><p>The statement piece. Full-body kiosk with programmable LED edge lighting, a large portrait touch display, and DSLR-grade capture — optional printing puts a takeaway in hand in seconds.</p><p class="pills">DSLR capture · Optional printing · Physical takeaways&ensp;·&ensp;<b>GM — Driving Innovation Forward</b></p></div></div>
-  <div class="prod"><div class="stage"><img src="assets/img/render-robot.png"></div><div><span class="kick">PB·04</span><h3>Robot</h3><p>A rail-mounted robotic arm with programmable, cinematic slow-mo moves. A crowd magnet that shoots like a camera operator.</p><p class="pills">Programmable moves · Cinematic slow-mo&ensp;·&ensp;<b>Chevrolet CMA Awards · NFL Salute to Service · Marvel × AmFam</b></p></div></div>
-  <div class="prod"><div class="stage"><img src="assets/img/render-360.png"></div><div><span class="kick">PB·05</span><h3>360 Camera</h3><p>Slow-motion orbit video with branded overlays, delivered before guests walk away. Mount it on truss for cinematic vehicle capture, or floor-mount when space is tight.</p><p class="pills">Truss or floor mount · Instant delivery&ensp;·&ensp;<b>CMA Fest · Chevrolet</b></p></div></div>
-  <div class="prod"><div class="stage"><img src="assets/img/render-array.png"></div><div><span class="kick">PB·06</span><h3>Array</h3><p>Bullet-time from a 7- or 14-camera gantry. Every lens fires in sync to freeze the moment, then sweep around it — branded end to end.</p><p class="pills">7 or 14 cameras, synced · Freeze + sweep&ensp;·&ensp;<b>Argylle premiere · Universal Studios</b></p></div></div>
   <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Every unit works with InTouch</span><span>01</span></div>
+</div>
+
+<!-- BOOTHS B -->
+<div class="page">
+  <div class="sec-head"><span class="num">01</span><h2>The Booth Line</h2><p>Continued — motion systems: robotic, orbital, and bullet-time capture.</p></div>
+  <p class="linknote">▶ Thumbnails are clickable — sample videos play in your browser.</p>
+  <div class="prod"><div class="stage"><img src="assets/img/render-robot.png"></div><div><span class="kick">PB·04</span><h3>Robot</h3><p>A rail-mounted robotic arm with programmable, cinematic slow-mo moves. A crowd magnet that shoots like a camera operator.</p><p class="pills">Programmable moves · Cinematic slow-mo&ensp;·&ensp;<b>Chevrolet CMA Awards · NFL Salute to Service · Marvel × AmFam</b></p>
+  <div class="thumbs"><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/robot-cma.mp4"><img src="assets/poster/robot-cma.jpg"><span class="play"></span></a><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/robot-marvel.mp4"><img src="assets/poster/robot-marvel.jpg"><span class="play"></span></a></div></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-360.png"></div><div><span class="kick">PB·05</span><h3>360 Camera</h3><p>Slow-motion orbit video with branded overlays, delivered before guests walk away. Mount it on truss for cinematic vehicle capture, or floor-mount when space is tight.</p><p class="pills">Truss or floor mount · Instant delivery&ensp;·&ensp;<b>CMA Fest · Chevrolet</b></p>
+  <div class="thumbs"><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/360-overhead.mp4"><img src="assets/poster/360-overhead.jpg"><span class="play"></span></a></div></div></div>
+  <div class="prod"><div class="stage"><img src="assets/img/render-array.png"></div><div><span class="kick">PB·06</span><h3>Array</h3><p>Bullet-time from a 7- or 14-camera gantry. Every lens fires in sync to freeze the moment, then sweep around it — branded end to end.</p><p class="pills">7 or 14 cameras, synced · Freeze + sweep&ensp;·&ensp;<b>Argylle premiere · Universal Studios</b></p>
+  <div class="thumbs"><a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/array-demo.mp4"><img src="assets/poster/array-demo.jpg"><span class="play"></span></a></div></div></div>
+  <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Every unit works with InTouch</span><span>02</span></div>
 </div>
 
 <!-- ENHANCEMENTS + TAKEAWAYS -->
@@ -126,9 +150,9 @@ img{max-width:100%}
   <div class="grid g5">
     <div class="cardp"><img src="assets/img/enhance-throwing.jpg"><div class="t"><span class="kick">ENH·01</span><h4>AI Image Regeneration</h4><p>A guest’s photo becomes the input to a full prompt — regenerated inside a brand-built scene.</p></div></div>
     <div class="cardp"><img src="assets/img/enhance-western-glam.jpg"><div class="t"><span class="kick">ENH·02</span><h4>Themed Regeneration</h4><p>The same engine, art-directed to a theme — “Western Glam” at CMA Fest.</p></div></div>
-    <div class="cardp"><img src="assets/poster/ai-suit.jpg"><div class="t"><span class="kick">ENH·03</span><h4>AI Head Swap</h4><p>The guest’s face on a pre-approved branded body — every logo 100% on point.</p></div></div>
+    <div class="cardp"><a class="vlink" href="https://pivotxp.github.io/jack-morton-catalog/assets/video/ai-suit.mp4"><img src="assets/poster/ai-suit.jpg"><span class="play"></span></a><div class="t"><span class="kick">ENH·03</span><h4>AI Head Swap</h4><p>The guest’s face on a pre-approved branded body — every logo 100% on point.</p></div></div>
     <div class="cardp"><img src="assets/img/enhance-1.jpg"><div class="t"><span class="kick">ENH·04</span><h4>AI Background Removal</h4><p>Subjects stay exactly as shot — placed naturally into the scene.</p></div></div>
-    <div class="cardp"><img src="assets/poster/enhance-name-sign.jpg"><div class="t"><span class="kick">ENH·05</span><h4>Personalized Signage</h4><p>Guests type their name and it renders into the scene — like this neon marquee.</p></div></div>
+    <div class="cardp"><a class="vlink" href="https://pivotxp.github.io/jack-morton-catalog/assets/video/enhance-name-sign.mp4"><img src="assets/poster/enhance-name-sign.jpg"><span class="play"></span></a><div class="t"><span class="kick">ENH·05</span><h4>Personalized Signage</h4><p>Guests type their name and it renders into the scene — like this neon marquee.</p></div></div>
   </div>
   <div class="subsec">
     <div class="sec-head"><span class="num">03</span><h2>Physical Takeaways</h2><p>These leave the event on refrigerators, desks, and binders — and keep the brand living there long after load-out.</p></div>
@@ -146,9 +170,9 @@ img{max-width:100%}
 <div class="page">
   <div class="sec-head"><span class="num">04</span><h2>Gamification &amp; Custom Software</h2><p>Give guests something to win and they’ll queue for it — custom game builds with real-time scoring.</p></div>
   <div class="grid g3">
-    <div class="cardp"><img src="assets/poster/karaoke.jpg"><div class="t"><span class="kick">GAME·01</span><h4>Car Karaoke</h4><p>Guests take the driver’s seat and perform — share-ready music video at the door. Chevrolet, CMA Awards.</p></div></div>
-    <div class="cardp"><img src="assets/poster/pitch.jpg"><div class="t"><span class="kick">GAME·02</span><h4>Pitch Against the Machine</h4><p>A radar-tracked pitching duel against a pro on screen. Chevy at Speedway Classic.</p></div></div>
-    <div class="cardp"><img src="assets/poster/leaderboards.jpg"><div class="t"><span class="kick">GAME·03</span><h4>Leaderboards</h4><p>Live standings on any screen, updated the moment a score lands. LIV Golf, NFL Bootcamp, US Cellular.</p></div></div>
+    <div class="cardp"><a class="vlink" href="https://pivotxp.github.io/jack-morton-catalog/assets/video/karaoke.mp4"><img src="assets/poster/karaoke.jpg"><span class="play"></span></a><div class="t"><span class="kick">GAME·01</span><h4>Car Karaoke</h4><p>Guests take the driver’s seat and perform — share-ready music video at the door. Chevrolet, CMA Awards.</p></div></div>
+    <div class="cardp"><a class="vlink" href="https://pivotxp.github.io/jack-morton-catalog/assets/video/pitch.mp4"><img src="assets/poster/pitch.jpg"><span class="play"></span></a><div class="t"><span class="kick">GAME·02</span><h4>Pitch Against the Machine</h4><p>A radar-tracked pitching duel against a pro on screen. Chevy at Speedway Classic.</p></div></div>
+    <div class="cardp"><a class="vlink" href="https://pivotxp.github.io/jack-morton-catalog/assets/video/leaderboards.mp4"><img src="assets/poster/leaderboards.jpg"><span class="play"></span></a><div class="t"><span class="kick">GAME·03</span><h4>Leaderboards</h4><p>Live standings on any screen, updated the moment a score lands. LIV Golf, NFL Bootcamp, US Cellular.</p></div></div>
   </div>
   <div class="subsec">
     <div class="sec-head"><span class="num">05</span><h2>Platform &amp; Connectivity</h2><p>One identity system underneath every touchpoint — so the data you promised the client actually shows up.</p></div>
@@ -171,12 +195,12 @@ img{max-width:100%}
 <div class="page">
   <div class="sec-head"><span class="num">06</span><h2>In The Field</h2><p>Beyond the booth line: full custom sets, broadcast desks, and branded builds — designed, fabricated, and run by Pivot crews.</p></div>
   <div class="fgrid">
-    <img src="assets/poster/install-liv.jpg">
+    <a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/install-liv.mp4" style="position:relative;display:block"><img src="assets/poster/install-liv.jpg"><span class="play"></span></a>
     <img src="assets/img/field-armynavy.jpg">
     <img src="assets/img/field-uscellular.jpg">
     <img src="assets/img/field-ally.jpg">
     <img src="assets/img/field-trowe.jpg">
-    <img src="assets/img/install-photo.jpg">
+    <a href="https://pivotxp.github.io/jack-morton-catalog/assets/video/field-experience.mp4" style="position:relative;display:block"><img src="assets/poster/field-experience.jpg" style="object-position:top"><span class="play"></span></a>
   </div>
   <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Designed · fabricated · crewed</span><span>04</span></div>
 </div>
@@ -184,13 +208,13 @@ img{max-width:100%}
 <!-- LIVE DEMOS + KIT -->
 <div class="page">
   <div class="sec-head"><span class="num">07</span><h2>Proof of Work</h2><p>The online edition of this catalog runs three real client builds you can drive in the browser — no install, any device.</p></div>
-  <div class="demo"><img src="assets/polaris/tiles/Mud_Test.png"><div><h3>Polaris “Tough Doesn’t Quit” Kiosk</h3><p>A 6.1 GB Unity kiosk rebuilt as a 130 MB webpage — magnetic carousels, tap-to-play, idle attract loop, and every interaction captured for reporting.</p><p class="url">pivotxp.github.io/jack-morton-catalog/polaris.html</p></div></div>
-  <div class="demo"><img src="assets/ntt/leaderboard_bg.png"><div><h3>Equinox Music Trivia Leaderboard</h3><p>The real CMA Fest arcade leaderboard screen, fed by simulated score submissions so you can watch standings shuffle live.</p><p class="url">pivotxp.github.io/jack-morton-catalog/#proof</p></div></div>
-  <div class="demo"><img src="assets/poster/field-experience.jpg"><div><h3>AbbVie × MLB Strikeout Wall</h3><p>Build a dedication sign on the fan phone and watch it hit the stadium board seconds later — the full phone-to-jumbotron pipeline, live on the page.</p><p class="url">pivotxp.github.io/jack-morton-catalog/#proof</p></div></div>
+  <div class="demo"><a href="https://pivotxp.github.io/jack-morton-catalog/polaris.html" style="position:relative;display:block"><img src="assets/polaris/tiles/Mud_Test.png" style="width:100%;height:1.5in;object-fit:cover;object-position:top;border-radius:4px"><span class="play"></span></a><div><h3>Polaris “Tough Doesn’t Quit” Kiosk</h3><p>A 6.1 GB Unity kiosk rebuilt as a 130 MB webpage — magnetic carousels, tap-to-play, idle attract loop, and every interaction captured for reporting.</p><p class="url"><a href="https://pivotxp.github.io/jack-morton-catalog/polaris.html" style="color:inherit;text-decoration:none">pivotxp.github.io/jack-morton-catalog/polaris.html</a></p></div></div>
+  <div class="demo"><a href="https://pivotxp.github.io/jack-morton-catalog/#proof" style="position:relative;display:block"><img src="assets/ntt/leaderboard_bg.png" style="width:100%;height:1.5in;object-fit:cover;object-position:top;border-radius:4px"><span class="play"></span></a><div><h3>Equinox Music Trivia Leaderboard</h3><p>The real CMA Fest arcade leaderboard screen, fed by simulated score submissions so you can watch standings shuffle live.</p><p class="url"><a href="https://pivotxp.github.io/jack-morton-catalog/#proof" style="color:inherit;text-decoration:none">pivotxp.github.io/jack-morton-catalog/#proof</a></p></div></div>
+  <div class="demo"><a href="https://pivotxp.github.io/jack-morton-catalog/#proof" style="position:relative;display:block"><img src="assets/poster/field-experience.jpg" style="width:100%;height:1.5in;object-fit:cover;object-position:top;border-radius:4px"><span class="play"></span></a><div><h3>AbbVie × MLB Strikeout Wall</h3><p>Build a dedication sign on the fan phone and watch it hit the stadium board seconds later — the full phone-to-jumbotron pipeline, live on the page.</p><p class="url"><a href="https://pivotxp.github.io/jack-morton-catalog/#proof" style="color:inherit;text-decoration:none">pivotxp.github.io/jack-morton-catalog/#proof</a></p></div></div>
   <div class="kitrow">
     <h3>Take the assets with you</h3>
     <p>Every photo, video, and render in this catalog — full resolution, organized by product line in five downloadable packs. No sign-in.</p>
-    <p class="url">pivotxp.github.io/jack-morton-catalog/kit.html</p>
+    <p class="url"><a href="https://pivotxp.github.io/jack-morton-catalog/kit.html" style="color:inherit;text-decoration:none">pivotxp.github.io/jack-morton-catalog/kit.html</a></p>
   </div>
   <div class="footer"><span>Pivot × Jack Morton</span><span class="mid">Live demos in the online edition</span><span>05</span></div>
 </div>
@@ -199,7 +223,7 @@ img{max-width:100%}
 <div class="page dark back">
   <h2>Built for activations<br>that cannot fail.</h2>
   <p>Booths, games, AI, takeaways, connectivity, and the software underneath it all — one vendor, one standard, wrapped in your client’s brand.</p>
-  <span class="cta">pivotxp.github.io/jack-morton-catalog</span>
+  <a class="cta" href="https://pivotxp.github.io/jack-morton-catalog/">pivotxp.github.io/jack-morton-catalog</a>
   <p class="fine">PivotXP × Jack Morton&nbsp;·&nbsp;pivotxp.com&nbsp;·&nbsp;mikah@pivotxp.com</p>
 </div>
 
