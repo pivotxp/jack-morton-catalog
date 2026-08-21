@@ -39,7 +39,10 @@ h1,h2,h3{font-family:var(--disp);text-wrap:balance}
 /* ---------- nav ---------- */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;gap:1.5rem;padding:.9rem clamp(1.2rem,4vw,2.5rem);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .nav.scrolled{border-bottom-color:var(--line)}
+.nav .brand{display:flex;align-items:center;gap:.7rem}
 .nav img{height:26px;width:auto}
+.brand .bx{font-family:var(--mono);font-size:.85rem;color:var(--dim)}
+.brand img.jm{height:13px;width:auto;opacity:.92}
 .nav-links{display:flex;gap:1.4rem;margin-left:auto;align-items:center}
 .nav-links a{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -233,7 +236,7 @@ footer .fine a{color:var(--muted)}
 <body>
 
 <nav class="nav" id="nav" aria-label="Catalog sections">
-  <img src="assets/img/pivot-logo.png" alt="PivotXP" width="2101" height="607">
+  <a class="brand" href="#top"><img src="assets/img/pivot-logo.png" alt="PivotXP" width="142" height="34"><span class="bx">×</span><img class="jm" src="assets/img/jackmorton-logo.svg" alt="Jack Morton"></a>
   <div class="nav-links">
     <a href="#booths">Booths</a>
     <a href="#enhancements">Enhancements</a>
