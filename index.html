@@ -222,6 +222,23 @@ section{padding:clamp(4rem,9vw,7.5rem) clamp(1.2rem,6vw,5rem)}
   background:rgba(17,24,20,.8);color:var(--ink);font-size:1.15rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
 #lightbox .lb-close:hover{border-color:var(--mint)}
 
+/* ---------- contact form ---------- */
+.contact-form{max-width:760px;display:grid;gap:1rem}
+.contact-form label{display:grid;gap:.35rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-form input,.contact-form textarea{font-family:var(--body);font-size:1rem;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:5px;padding:.7rem .85rem;transition:border-color .2s}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--mint)}
+.contact-form textarea{resize:vertical;min-height:7rem}
+.cf-row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cf-actions{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.cf-submit{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-ink);
+  background:var(--mint);border:none;border-radius:4px;padding:.85rem 1.4rem;cursor:pointer;transition:background .2s}
+.cf-submit:hover{background:#5BEFAF}
+.cf-submit[disabled]{opacity:.55;cursor:default}
+.cf-status{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cf-status.ok{color:var(--mint)}
+.cf-status.err{color:#FF7A7A}
+
 /* ---------- footer ---------- */
 footer{padding:4rem clamp(1.2rem,6vw,5rem) 3rem;display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);margin-top:clamp(4rem,8vw,6rem)}
 footer img{height:24px;width:auto}
@@ -245,6 +262,7 @@ footer .fine a{color:var(--muted)}
     <a href="#platform">Platform</a>
     <a href="#installs">Field</a>
     <a href="#proof">Demo</a>
+    <a href="#contact">Contact</a>
     <a class="btn-kit" href="kit.html">Asset Kit</a>
   </div>
 </nav>
@@ -571,6 +589,28 @@ footer .fine a{color:var(--muted)}
   </div>
 </section>
 
+<!-- ==================== 08 CONTACT ==================== -->
+<section id="contact">
+  <div class="sec-head reveal">
+    <span class="num">08</span>
+    <h2>Get a Quote</h2>
+    <p>Custom wrap, client-branded comp, or a full activation plan — tell us what you’re pitching and we’ll come back with numbers and lead times.</p>
+  </div>
+  <form class="contact-form reveal" id="quoteForm" novalidate>
+    <div class="cf-row">
+      <label>Name<input type="text" name="name" required autocomplete="name" maxlength="120"></label>
+      <label>Email<input type="email" name="email" required autocomplete="email" maxlength="200"></label>
+      <label>Phone<input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+    </div>
+    <label>Comments<textarea name="comments" rows="5" maxlength="4000" placeholder="What are you pitching? Products, dates, footprint — anything helps."></textarea></label>
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <div class="cf-actions">
+      <button type="submit" class="cf-submit">Send it to the Pivot team</button>
+      <span class="cf-status" id="cfStatus" role="status"></span>
+    </div>
+  </form>
+</section>
+
 <!-- ==================== ASSET KIT ==================== -->
 <div class="kit reveal" id="assets">
   <div>
@@ -581,7 +621,7 @@ footer .fine a{color:var(--muted)}
   <div class="actions">
     <a class="primary" href="kit.html">Open the Asset Kit</a>
     <a class="ghost" href="Pivot-x-Jack-Morton-Experience-Catalog.pdf?v=4" download>Download the PDF</a>
-    <a class="ghost" href="mailto:mikah@pivotxp.com?subject=Jack%20Morton%20%C3%97%20Pivot%20%E2%80%94%20Asset%20request">Request a custom comp</a>
+    <a class="ghost" href="#contact">Request a custom comp</a>
   </div>
 </div>
 
@@ -599,6 +639,25 @@ footer .fine a{color:var(--muted)}
 // nav border on scroll
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// contact form -> supabase edge function -> sendgrid
+const qf=document.getElementById('quoteForm');
+if(qf){
+  const st=document.getElementById('cfStatus'),btn=qf.querySelector('.cf-submit');
+  qf.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const d=Object.fromEntries(new FormData(qf).entries());
+    if(!d.name.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){st.textContent='Name and a valid email, please';st.className='cf-status err';return}
+    btn.disabled=true;st.textContent='Sending…';st.className='cf-status';
+    try{
+      const r=await fetch('https://jlgvaejxydcteciqzgub.supabase.co/functions/v1/jack-morton-contact',{
+        method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});
+      if(!r.ok)throw new Error();
+      st.textContent='Sent — we’ll be in touch shortly';st.className='cf-status ok';qf.reset();
+    }catch(_){st.textContent='Something hiccuped — email mikah@pivotxp.com instead';st.className='cf-status err'}
+    btn.disabled=false;
+  });
+}
 
 // pause live demo iframes while off-screen
 const frameIO=new IntersectionObserver(es=>es.forEach(e=>{
